@@ -151,13 +151,17 @@ public class SequenceFinderImpl implements SequenceFinder {
       LinkedList<Occurrence> occurrences,
       Occurrence lastOccurrence,
       Occurrence current) {
-    if (lastOccurrence == null || lastOccurrence.getValue() == current.getValue()) {
-      occurrences.add(current);
-      if (occurrences.size() == this.occurrenceNumber) {
-        resultSequences.add(new Sequence(occurrences));
-        occurrences.clear();
-      }
-    } else {
+
+    occurrences.add(current);
+
+    if (lastOccurrence != null
+        && lastOccurrence.getValue() != current.getValue()
+        && occurrences.size() > 1) {
+      occurrences.clear();
+    }
+
+    if (occurrences.size() == this.occurrenceNumber) {
+      resultSequences.add(new Sequence(occurrences));
       occurrences.clear();
     }
   }
