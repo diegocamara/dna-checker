@@ -1,5 +1,6 @@
-package com.checker.dna.domain.feature;
+package com.checker.dna.domain.feature.impl;
 
+import com.checker.dna.domain.feature.VerifyDNA;
 import com.checker.dna.domain.model.DNA;
 import com.checker.dna.domain.model.DNARepository;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.checker.dna.domain.feature;
+package com.checker.dna.domain.feature.impl;
 
 import com.checker.dna.domain.model.DNARepository;
 import com.checker.dna.domain.model.HumanDNA;
