@@ -7,10 +7,13 @@ import com.checker.dna.domain.exception.NullDNAInputException;
 
 public abstract class DNA {
 
-  public DNA(String[] input) {
-    checkNull(input);
-    checkEmpty(input);
-    validDNA(resolveSegments(input));
+  private final String[] segments;
+
+  public DNA(String[] segments) {
+    checkNull(segments);
+    checkEmpty(segments);
+    validDNA(resolveSegments(segments));
+    this.segments = segments;
   }
 
   public abstract void validDNA(char[][] segments);
@@ -57,5 +60,9 @@ public abstract class DNA {
 
   private boolean inputIsNull(String[] input) {
     return input == null;
+  }
+
+  public String[] segments() {
+    return this.segments;
   }
 }
