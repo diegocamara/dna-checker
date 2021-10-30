@@ -138,6 +138,49 @@ class SimianDNATest {
   }
 
   @Test
+  void shouldCreateSimianDNAInstanceWith3SequencesInLowerCase() {
+    //    "CTGAGA"
+    //    "CTATGC"
+    //    "TATTGT"
+    //    "AGAGGG"
+    //    "CCCCTA"
+    //    "TCACTG"
+    final var simianDNA =
+        new SimianDNA(new String[] {"ctgaga", "ctatgc", "tattgt", "agaggg", "ccccta", "tcactg"});
+
+    Assertions.assertEquals(3, simianDNA.sequences().size());
+
+    final var expectSequence1 =
+        new Sequence(
+            asList(
+                new Occurrence(3, 0, 'A'),
+                new Occurrence(2, 1, 'A'),
+                new Occurrence(1, 2, 'A'),
+                new Occurrence(0, 3, 'A')));
+
+    final var expectSequence2 =
+        new Sequence(
+            asList(
+                new Occurrence(4, 0, 'C'),
+                new Occurrence(4, 1, 'C'),
+                new Occurrence(4, 2, 'C'),
+                new Occurrence(4, 3, 'C')));
+
+    final var expectSequence3 =
+        new Sequence(
+            asList(
+                new Occurrence(0, 4, 'G'),
+                new Occurrence(1, 4, 'G'),
+                new Occurrence(2, 4, 'G'),
+                new Occurrence(3, 4, 'G')));
+
+    Assertions.assertTrue(
+        simianDNA
+            .sequences()
+            .containsAll(asList(expectSequence1, expectSequence2, expectSequence3)));
+  }
+
+  @Test
   void shouldThrowsItsNotAnSimianExceptionWhenTryingCreateWith1Sequence() {
 
     //    "ATGCGA"

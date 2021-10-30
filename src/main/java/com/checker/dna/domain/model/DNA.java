@@ -22,7 +22,7 @@ public abstract class DNA {
       final var segment = input[index];
       checkSegmentContent(segment);
       checkSegmentOrder(segment, segmentsLength);
-      segments[index] = segment.toCharArray();
+      segments[index] = segment.toUpperCase().toCharArray();
     }
     return segments;
   }
@@ -34,7 +34,7 @@ public abstract class DNA {
   }
 
   private void checkSegmentContent(String segment) {
-    if (segment == null || !segment.matches("[ATCG]+")) {
+    if (segment == null || !segment.matches("[ATCGatcg]+")) {
       throw new InvalidDNASegmentException(segment);
     }
   }
