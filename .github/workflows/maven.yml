@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribuition: 'adopt'
+          distribution: 'adopt'
           cache: maven
       - name: Build Project
         run: mvn -B package --file pom.xml
