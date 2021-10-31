@@ -30,7 +30,7 @@ class VerifyDNAImplTest {
 
   @Test
   void shouldVerifyHumanDNAAndStoreInDatabase() {
-    final var segments = new String[] {"ATGCGA", "CAGTGC", "TTATCT", "AGACGG", "GCCTCA", "TCACTG"};
+    final var segments = new String[] {"ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCCTCA", "TCACTG"};
     final var result = this.verifyDNA.handle(segments);
     Assertions.assertThat(result).isInstanceOf(HumanDNA.class);
     Assertions.assertThat(result.segments()).isEqualTo(segments);

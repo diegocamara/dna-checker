@@ -16,7 +16,7 @@ class DNAParserTest {
 
   @Test
   void shouldParseHumanDNA() {
-    final var segments = new String[] {"ATGCGA", "CAGTGC", "TTATCT", "AGACGG", "GCCTCA", "TCACTG"};
+    final var segments = new String[] {"ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCCTCA", "TCACTG"};
     final var result = parser().withSegments(segments).parse();
     Assertions.assertThat(result).isInstanceOf(HumanDNA.class);
   }

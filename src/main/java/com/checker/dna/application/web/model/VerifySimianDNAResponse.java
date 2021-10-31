@@ -1,6 +1,14 @@
 package com.checker.dna.application.web.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class VerifySimianDNAResponse {}
+@NoArgsConstructor
+@AllArgsConstructor
+public class VerifySimianDNAResponse {
+  @JsonProperty("is_simian")
+  private boolean isSimian;
+}

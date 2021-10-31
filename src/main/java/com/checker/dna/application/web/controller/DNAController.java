@@ -3,6 +3,7 @@ package com.checker.dna.application.web.controller;
 import com.checker.dna.application.web.model.VerifySimianDNAResponse;
 import com.checker.dna.application.web.model.VerifySimianRequest;
 import com.checker.dna.domain.feature.VerifyDNA;
+import com.checker.dna.domain.model.SimianDNA;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ public class DNAController {
   @PostMapping
   public ResponseEntity<VerifySimianDNAResponse> verifySimianDNA(
       @RequestBody VerifySimianRequest verifySimianRequest) {
-    return null;
+    final var dna = verifyDNA.handle(verifySimianRequest.getDna());
+    return ResponseEntity.ok(new VerifySimianDNAResponse(dna instanceof SimianDNA));
   }
 }

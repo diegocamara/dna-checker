@@ -194,7 +194,7 @@ class SimianDNATest {
         ItsNotAnSimianException.class,
         () ->
             new SimianDNA(
-                new String[] {"ATGCGA", "CAGTGC", "TTATCT", "AGACGG", "GCCTCA", "TCACTG"}));
+                new String[] {"ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCCTCA", "TCACTG"}));
   }
 
   @Test

@@ -1,6 +1,7 @@
 package com.checker.dna.infrastructure.repository;
 
 import com.checker.dna.domain.model.SimianDNA;
+import com.checker.dna.extensions.ClearDatabaseExtension;
 import com.checker.dna.infrastructure.repository.springdata.SpringDataJpaDNARepository;
 import com.checker.dna.infrastructure.repository.springdata.entity.DNAEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -17,6 +19,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
 @DataJpaTest
+@ExtendWith(ClearDatabaseExtension.class)
 class SpringDataDNARepositoryTest {
 
   private final ObjectMapper utilsObjectMapper = new ObjectMapper();
@@ -35,14 +38,6 @@ class SpringDataDNARepositoryTest {
   @AfterEach
   public void afterEach() {
     Mockito.reset(this.springDataJpaDNARepository, this.objectMapper);
-    clearDB();
-  }
-
-  private void clearDB() {
-    this.testEntityManager
-        .getEntityManager()
-        .createNativeQuery("DELETE FROM DNA_TB;")
-        .executeUpdate();
   }
 
   @Test
@@ -113,7 +108,7 @@ class SpringDataDNARepositoryTest {
     this.testEntityManager.persist(
         new DNAEntity(
             writeValueAsString(
-                new String[] {"ATGCGA", "CAGTGC", "TTATCT", "AGACGG", "GCCTCA", "TCACTG"}),
+                new String[] {"ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCCTCA", "TCACTG"}),
             DNAEntity.DNAType.HUMAN));
 
     final var result = this.springDataDNARepository.retrieveStats();
@@ -135,7 +130,7 @@ class SpringDataDNARepositoryTest {
     this.testEntityManager.persist(
         new DNAEntity(
             writeValueAsString(
-                new String[] {"ATGCGA", "CAGTGC", "TTATCT", "AGACGG", "GCCTCA", "TCACTG"}),
+                new String[] {"ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCCTCA", "TCACTG"}),
             DNAEntity.DNAType.HUMAN));
 
     this.testEntityManager.persist(

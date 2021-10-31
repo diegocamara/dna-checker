@@ -2,7 +2,7 @@ package com.checker.dna.domain.exception;
 
 import static java.lang.String.format;
 
-public class InvalidDNASegmentException extends RuntimeException {
+public class InvalidDNASegmentException extends DNAException {
 
   private final String segment;
 
