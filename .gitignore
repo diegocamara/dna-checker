@@ -3,6 +3,10 @@
 target
 # Log file
 *.log
+appengine
+
+.env
+.gcloudignore
 
 # BlueJ files
 *.ctxt

@@ -152,13 +152,11 @@ public class SequenceFinderImpl implements SequenceFinder {
       Occurrence lastOccurrence,
       Occurrence current) {
 
-    occurrences.add(current);
-
-    if (lastOccurrence != null
-        && lastOccurrence.getValue() != current.getValue()
-        && occurrences.size() > 1) {
+    if (lastOccurrence != null && lastOccurrence.getValue() != current.getValue()) {
       occurrences.clear();
     }
+
+    occurrences.add(current);
 
     if (occurrences.size() == this.occurrenceNumber) {
       resultSequences.add(new Sequence(occurrences));
