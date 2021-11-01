@@ -152,7 +152,7 @@ class SequenceFinderImplTest {
 
   @Test
   void shouldReturn2SequencesWithAOccurrencesWith8x8() {
-    final var humanSegments =
+    final var segments =
         new char[][] {
           {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A'},
           {'C', 'A', 'G', 'T', 'G', 'C', 'G', 'A'},
@@ -163,7 +163,7 @@ class SequenceFinderImplTest {
           {'T', 'G', 'A', 'C', 'T', 'G', 'A', 'T'},
           {'T', 'C', 'A', 'C', 'T', 'G', 'A', 'T'}
         };
-    final var sequences = sequenceFinder.find(humanSegments);
+    final var sequences = sequenceFinder.find(segments);
 
     Assertions.assertEquals(2, sequences.size());
 
