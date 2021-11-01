@@ -49,7 +49,10 @@ After building the application, the coverage reports can be found at:
 target/site/jacoco
 ```
 
-To use PostgreSQL as database, the configuration data must be replaced in application.yaml:
+### Changing the database
+
+To use PostgreSQL as database, configure the connection information in the runtime according to identifiers used in
+application.yaml:
 
 ```yaml
 server:
