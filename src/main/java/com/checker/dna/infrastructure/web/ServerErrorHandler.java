@@ -1,4 +1,4 @@
-package com.checker.dna.infrastructure.repository.web;
+package com.checker.dna.infrastructure.web;
 
 import com.checker.dna.domain.exception.DNAException;
 import org.springframework.http.HttpStatus;
