@@ -6,6 +6,43 @@ This codebase was created to demonstrate DNA validation for simians through a RE
 
 # How it works
 
+POST /simian
+
+Request example:
+
+```json
+{
+  "dna": [
+    "GGTTTT",
+    "CAGTCC",
+    "TTAATT",
+    "AGACGA",
+    "GACTCA",
+    "ACACTG"
+  ]
+}
+```
+
+Response example:
+
+```json
+{
+  "is_simian": true
+}
+```
+
+GET /stats
+
+Response example:
+
+```json
+{
+  "ratio": 0.75,
+  "count_simian_dna": 3,
+  "count_human_dna": 4
+}
+```
+
 This application uses Spring Framework on the Java 11 platform and some more modules like:
 
 * Hibernate
